@@ -23,6 +23,5 @@ jobs:
           server-dir: /public_html/hello_world/
 
       - name: Trigger URL after deployment
-        run: |
-          curl -X GET "https://nachaal.com/phpmailer"
-        shell: bash
+        run: Invoke-WebRequest -Uri "https://nachaal.com/phpmailer" -Method Get
+        shell: pwsh
