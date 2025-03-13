@@ -21,3 +21,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /public_html/hello_world/
+
+      - name: Trigger URL after deployment
+        run: |
+          curl -X GET "https://nachaal.com/deployment-success"
+        shell: bash
