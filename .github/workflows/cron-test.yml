@@ -12,17 +12,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create a temporary directory and log file
-        run: |
-          mkdir cron_test
-          echo "Cron ran at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" >> cron_test/cron-log.txt
-        shell: pwsh  # Ensure Windows compatibility
+      - name: Create Log File (Demo)
+        run: echo "Cron ran at $(date)" >> cron-log.txt
 
-      - name: Upload Only cron-log.txt via FTP
+      - name: Upload Log File via FTP
         uses: samkirkland/ftp-deploy-action@v4.3.1
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./cron_test/  # Upload only from this directory
-          server-dir: /public_html/cron_test/  
+          local-dir: ./
+          server-dir: /public_html/cron_test/  # Adjust to your server path
+          include: "cron-log.txt"  
+          exclude: "**/*"  # Exclude all other files
