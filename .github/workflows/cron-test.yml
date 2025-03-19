@@ -24,3 +24,4 @@ jobs:
           local-dir: ./
           server-dir: /public_html/cron_test/  # Adjust to your server path
           include: "cron-log.txt"  
+          exclude: "**/*"  # Exclude all other files
