@@ -23,5 +23,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /public_html/cron_test/  # Adjust to your server path
-          include: 
-            - cron-log.txt  # Ensure only this file gets uploaded
+          include: "cron-log.txt"  
