@@ -14,7 +14,7 @@ jobs:
 
       - name: Create a temporary directory and log file
         run: |
-          mkdir upload-dir
+          mkdir cron_test
           echo "Cron ran at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" >> cron_test/cron-log.txt
         shell: pwsh  # Ensure Windows compatibility
 
